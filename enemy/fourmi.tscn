@@ -30,7 +30,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="fourmi" type="Area2D"]
+[node name="fourmi" type="RigidBody2D"]
+collision_layer = 4
 script = ExtResource("1_k0u6a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -42,6 +43,3 @@ position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_ipqfd")
 animation = &"walk"
 autoplay = "walk"
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 19)

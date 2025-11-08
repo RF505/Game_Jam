@@ -8,5 +8,22 @@
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(265, 154)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(694, 387)
+limit_left = 0
+limit_top = 0
+limit_right = 5715
+limit_bottom = 1400
+position_smoothing_speed = 8.0
+
 [node name="Platform" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(1, 240)
+
+[node name="Platform3" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(-108, 877)
+
+[node name="Platform4" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(1444, 36)
+
+[node name="Platform2" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(1151, 833)

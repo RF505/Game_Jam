@@ -4,14 +4,21 @@ var cardinal_direction : Vector2 = Vector2.RIGHT
 var direction : Vector2 = Vector2.ZERO
 var move_speed : float = 350.0
 var gravity : float = 1000
-var jump_force : float = -500
+var jump_force : float = -1000
 var state : String = "idle"
 
 var is_jumping : bool = false
 var is_crouching : bool = false
 
+var dead : bool = false
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
+
+@export_group("Camera sync")
+@export var camera_sync: Camera2D
+@export var should_camera_sync: bool = true
+@export_group("")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

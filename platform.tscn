@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://byl6uk7u6ulnt"]
+
+[ext_resource type="Texture2D" uid="uid://dbdtqgfw4xro7" path="res://Tilemap/Ground/ground.jpg" id="1_mi635"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(938, 346.5)
+
+[node name="Platform" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(470, 174.75)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(470, 175)
+texture = ExtResource("1_mi635")

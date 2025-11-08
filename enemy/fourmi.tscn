@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cup6nouvjobe1"]
+[gd_scene load_steps=13 format=3 uid="uid://cup6nouvjobe1"]
 
 [ext_resource type="Texture2D" uid="uid://bbsmdjfl2gs6b" path="res://enemy/Sprite/fourmisdeath.png" id="1_ipqfd"]
 [ext_resource type="Script" uid="uid://bw47mb7v3quth" path="res://enemy/Script/fourmi.gd" id="1_k0u6a"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bhywdvay4ey5s" path="res://enemy/Sprite/fourmis2.png" id="3_c7ip3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfwk3"]
-size = Vector2(36, 40)
+size = Vector2(40, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ipqfd"]
 animations = [{
@@ -30,15 +30,129 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_k0u6a"]
+resource_name = "mort"
+step = 0.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["dead"],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 5, -0.11860966, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_c7ip3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c7ip3"]
+_data = {
+&"RESET": SubResource("Animation_c7ip3"),
+&"mort": SubResource("Animation_k0u6a")
+}
+
+[sub_resource type="Gradient" id="Gradient_k0u6a"]
+offsets = PackedFloat32Array(0.14444445, 1)
+colors = PackedColorArray(0.6955032, 0.6955031, 0.6955031, 1, 0.63529414, 0.63529414, 0.63529414, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c7ip3"]
+gradient = SubResource("Gradient_k0u6a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k0u6a"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+spread = 180.0
+initial_velocity_min = 296.53
+initial_velocity_max = 447.37
+angular_velocity_min = -312.45
+angular_velocity_max = 200.37997
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 15.0
+color_ramp = SubResource("GradientTexture1D_c7ip3")
+
 [node name="fourmi" type="RigidBody2D"]
 collision_layer = 4
+lock_rotation = true
 script = ExtResource("1_k0u6a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, 0)
+position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_gfwk3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ipqfd")
-animation = &"walk"
+animation = &"dead"
 autoplay = "walk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_c7ip3")
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-8, 0)
+emitting = false
+amount = 15
+lifetime = 0.16
+one_shot = true
+explosiveness = 0.05
+process_material = SubResource("ParticleProcessMaterial_k0u6a")

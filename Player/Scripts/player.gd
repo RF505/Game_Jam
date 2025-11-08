@@ -5,6 +5,7 @@ var direction : Vector2 = Vector2.ZERO
 var move_speed : float = 350.0
 var gravity : float = 1000
 var jump_force : float = -500
+@export var bounce_height : float = 200
 var state : String = "idle"
 
 var is_jumping : bool = false
@@ -80,6 +81,15 @@ func _physics_process(delta: float) -> void:
 				UpdateAnimation()
 
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var col := get_slide_collision(i)
+		var collider := col.get_collider()
+		var is_stomping := ( collider is Enemy and is_on_floor() and col.get_normal().is_equal_approx(Vector2.UP) )
+		
+		if is_stomping:
+			velocity.y = -bounce_height
+			(collider as Enemy).die()
 
 
 func Dash() -> void:

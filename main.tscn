@@ -18,12 +18,3 @@ position_smoothing_speed = 8.0
 
 [node name="Platform" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(1, 240)
-
-[node name="Platform3" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(-108, 877)
-
-[node name="Platform4" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(1444, 36)
-
-[node name="Platform2" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(1151, 833)

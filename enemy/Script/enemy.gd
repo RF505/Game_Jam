@@ -1,17 +1,17 @@
 extends RigidBody2D
-
 class_name Enemy
 
-@export var horizontal_speed = 30
-@export var vertical_speed = 100
+var velocity : Vector2 = Vector2(-100,0)
+@onready var anim : AnimationPlayer = $AnimationPlayer
+@onready var particules : GPUParticles2D = $GPUParticles2D
 
+func _physics_process(delta: float) -> void:
+	move_and_collide(velocity * delta)
 
-@onready var animated_sprite_2d = $AnimatedSprite2D as AnimatedSprite2D
-
-func _process(delta):
-	position.x -= delta * horizontal_speed
-	
 func die():
-	horizontal_speed = 0
-	vertical_speed = 0
-	animated_sprite_2d.play("dead")
+	velocity.x = 0
+	velocity.y = -200
+	anim.play("mort")
+	particules.restart()
+	particules.emitting = true
+	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blpocxuufja2k"
-path="res://.godot/imported/fence_asset.png-5bb5193420a10375e21e675c5e5bb7ef.ctex"
+uid="uid://decsgay38jcrp"
+path="res://.godot/imported/earth_block.png-4df1279a71be789c47bae563c0b7ad83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image_autre/fence_asset.png"
-dest_files=["res://.godot/imported/fence_asset.png-5bb5193420a10375e21e675c5e5bb7ef.ctex"]
+source_file="res://image_autre/earth_block.png"
+dest_files=["res://.godot/imported/earth_block.png-4df1279a71be789c47bae563c0b7ad83.ctex"]
 
 [params]
 

@@ -4,7 +4,7 @@ var cardinal_direction : Vector2 = Vector2.RIGHT
 var direction : Vector2 = Vector2.ZERO
 var move_speed : float = 350.0
 var gravity : float = 1000
-var jump_force : float = -500
+var jump_force : float = -600
 @export var bounce_height : float = 200
 var state : String = "idle"
 

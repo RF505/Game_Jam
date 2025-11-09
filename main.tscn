@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d2yony5swilq5"]
+[gd_scene load_steps=18 format=4 uid="uid://d2yony5swilq5"]
 
 [ext_resource type="PackedScene" uid="uid://bxl53msj1oxp7" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cup6nouvjobe1" path="res://enemy/fourmi.tscn" id="2_h2yge"]
@@ -14,7 +14,8 @@
 [ext_resource type="TileSet" uid="uid://cm0gio37s1hjv" path="res://Rescource/ground.tres" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://cx5yg5t4g1uf1" path="res://image_autre/zone.tscn" id="14_vivmo"]
 [ext_resource type="Texture2D" uid="uid://1fkbrnvme3m0" path="res://image_autre/tree_asset.png" id="14_w48qg"]
-[ext_resource type="Script" uid="uid://d0ep3a1756k4g" path="res://zone_jardin.gd" id="15_vivmo"]
+[ext_resource type="PackedScene" uid="uid://citk7aff8ys76" path="res://image_autre/zone_jardin.tscn" id="15_vivmo"]
+[ext_resource type="PackedScene" uid="uid://bxgkpg4haiwf4" path="res://image_autre/zone_maison.tscn" id="16_2cqfq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w48qg"]
 size = Vector2(61, 5148)
@@ -80,9 +81,14 @@ tile_set = ExtResource("13_ycdy4")
 position = Vector2(1269, 1497)
 shape = SubResource("RectangleShape2D_w48qg")
 
-[node name="Zone_Jardin" type="Area2D" parent="CanvasLayer"]
-script = ExtResource("15_vivmo")
+[node name="Zone_Jardin" parent="CanvasLayer" instance=ExtResource("15_vivmo")]
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="CanvasLayer/Zone_Jardin"]
-position = Vector2(1269, 1497)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CanvasLayer/Zone_Jardin"]
+position = Vector2(2030, 1301)
+shape = SubResource("RectangleShape2D_w48qg")
+
+[node name="Zone_maison" parent="CanvasLayer" instance=ExtResource("16_2cqfq")]
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="CanvasLayer/Zone_maison"]
+position = Vector2(2786, 1285)
 shape = SubResource("RectangleShape2D_w48qg")

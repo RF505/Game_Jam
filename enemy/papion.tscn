@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dtusl05khfnij" path="res://son/mort_enemy.wav" id="5_ah3wo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfwk3"]
-size = Vector2(66, 39)
+size = Vector2(42, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n0wmi"]
 atlas = ExtResource("4_ijc1r")
@@ -141,7 +141,7 @@ script = ExtResource("1_bo03b")
 velocity = Vector2(-50, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2.5)
+position = Vector2(-1, -14)
 shape = SubResource("RectangleShape2D_gfwk3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

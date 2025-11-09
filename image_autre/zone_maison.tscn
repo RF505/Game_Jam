@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxgkpg4haiwf4"]
 
-[ext_resource type="Texture2D" uid="uid://bnmeuc0kwpdau" path="res://image_autre/image3.png" id="1_y4krt"]
 [ext_resource type="Script" uid="uid://80u1ix2m4bv7" path="res://image_autre/zone_maison.gd" id="2_1nrko"]
+[ext_resource type="Texture2D" uid="uid://c8fonhi07ny8w" path="res://image_autre/end.png" id="2_nynsq"]
 
 [node name="Zone_maison" type="Area2D"]
 collision_layer = 0
@@ -10,6 +10,6 @@ script = ExtResource("2_1nrko")
 
 [node name="image_Maison" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(960.0001, 540)
-scale = Vector2(2.519685, 2.0149255)
-texture = ExtResource("1_y4krt")
+position = Vector2(960.29083, 540.23334)
+scale = Vector2(2.8309996, 2.464688)
+texture = ExtResource("2_nynsq")

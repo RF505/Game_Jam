@@ -119,6 +119,9 @@ func _physics_process(delta: float) -> void:
 			else:
 				# Sinon on prend des dégâts
 				take_damage(collider)
+		if collider is Zone:
+			# prend des dégâts si bush ou feu
+			take_damage(collider)
 
 
 

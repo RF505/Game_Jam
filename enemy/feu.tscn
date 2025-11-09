@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ca8e76hyicn5j" path="res://enemy/Sprite/Fire_frames.png" id="1_gjuqg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfwk3"]
-size = Vector2(57, 57)
+size = Vector2(57, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eu5kf"]
 atlas = ExtResource("1_gjuqg")
@@ -33,8 +33,9 @@ gravity_scale = 0.0
 lock_rotation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -13.5)
+position = Vector2(-1.5, 16)
 shape = SubResource("RectangleShape2D_gfwk3")
+one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -2)

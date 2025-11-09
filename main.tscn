@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2yony5swilq5"]
+[gd_scene load_steps=14 format=3 uid="uid://d2yony5swilq5"]
 
 [ext_resource type="PackedScene" uid="uid://bxl53msj1oxp7" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://byl6uk7u6ulnt" path="res://platform.tscn" id="2_0xm2m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bktfd6jcnv8g0" path="res://UI/Script/ui_hearts.gd" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ccryvut6wm1v3" path="res://enemy/papion.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://cc2fjsvlvnugc" path="res://enemy/escargot.tscn" id="10_4c57u"]
+[ext_resource type="TileSet" uid="uid://cm0gio37s1hjv" path="res://Rescource/ground.tres" id="13_ycdy4"]
 
 [node name="Main" type="Node2D"]
 
@@ -27,7 +28,7 @@ limit_bottom = 1400
 position_smoothing_speed = 8.0
 
 [node name="Platform" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(1, 240)
+position = Vector2(-2, 242)
 
 [node name="feu" parent="." instance=ExtResource("3_efxa6")]
 position = Vector2(532, 224)
@@ -57,3 +58,6 @@ autoplay = true
 
 [node name="UI_Hearts" parent="." groups=["ui_hearts"] instance=ExtResource("6_272bh")]
 script = ExtResource("7_5vw27")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("13_ycdy4")

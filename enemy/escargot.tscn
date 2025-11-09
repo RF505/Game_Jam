@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cc2fjsvlvnugc"]
 
-[ext_resource type="Script" uid="uid://ca8qvh5bgi61u" path="res://enemy/escargot.gd" id="1_8pak0"]
+[ext_resource type="Script" uid="uid://ca8qvh5bgi61u" path="res://enemy/Script/escargot.gd" id="1_8pak0"]
 [ext_resource type="Texture2D" uid="uid://bbsmdjfl2gs6b" path="res://enemy/Sprite/fourmisdeath.png" id="2_6iwmx"]
 [ext_resource type="Texture2D" uid="uid://d030seldo2kvp" path="res://enemy/Sprite/fourmis1.png" id="3_k26ht"]
 [ext_resource type="Texture2D" uid="uid://bhywdvay4ey5s" path="res://enemy/Sprite/fourmis2.png" id="4_6c7sr"]

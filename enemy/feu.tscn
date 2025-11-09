@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cphru5islbr13"]
+
+[ext_resource type="Texture2D" uid="uid://ca8e76hyicn5j" path="res://enemy/Sprite/Fire_frames.png" id="1_gjuqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfwk3"]
+size = Vector2(57, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu5kf"]
+atlas = ExtResource("1_gjuqg")
+region = Rect2(190, 0, 232, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06u0i"]
+atlas = ExtResource("1_gjuqg")
+region = Rect2(495, 0, 232, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipqfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu5kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06u0i")
+}],
+"loop": true,
+"name": &"anim",
+"speed": 5.0
+}]
+
+[node name="feu" type="RigidBody2D"]
+collision_layer = 4
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -13.5)
+shape = SubResource("RectangleShape2D_gfwk3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.25585938, 0.2421875)
+sprite_frames = SubResource("SpriteFrames_ipqfd")
+animation = &"anim"
+autoplay = "anim"

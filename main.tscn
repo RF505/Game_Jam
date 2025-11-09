@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2yony5swilq5"]
+[gd_scene load_steps=13 format=3 uid="uid://d2yony5swilq5"]
 
 [ext_resource type="PackedScene" uid="uid://bxl53msj1oxp7" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://byl6uk7u6ulnt" path="res://platform.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cup6nouvjobe1" path="res://enemy/fourmi.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cphru5islbr13" path="res://enemy/feu.tscn" id="3_efxa6"]
 [ext_resource type="PackedScene" uid="uid://enk4f68xxrcw" path="res://image_autre/sprite_2d.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://jqp7nb0enkcy" path="res://enemy/bush.tscn" id="4_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bkplivs1hi23j" path="res://enemy/mouse.tscn" id="5_5vw27"]
 [ext_resource type="AudioStream" uid="uid://bl3ugqk5r8w8x" path="res://son/son_installation.mp3" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dclspk2r3m51k" path="res://UI/UI_Hearts.tscn" id="6_272bh"]
@@ -27,8 +29,14 @@ position_smoothing_speed = 8.0
 [node name="Platform" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(1, 240)
 
+[node name="feu" parent="." instance=ExtResource("3_efxa6")]
+position = Vector2(532, 224)
+
+[node name="bush" parent="." instance=ExtResource("4_dg77c")]
+position = Vector2(752, 194)
+
 [node name="fourmi" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(714, 181)
+position = Vector2(715, 34)
 
 [node name="mouse" parent="." instance=ExtResource("5_5vw27")]
 position = Vector2(709, 140)
@@ -37,7 +45,7 @@ position = Vector2(709, 140)
 position = Vector2(854, 176)
 
 [node name="papion" parent="." instance=ExtResource("9_kek77")]
-position = Vector2(707, 99)
+position = Vector2(709, 94)
 
 [node name="image_start" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(-900, 0)

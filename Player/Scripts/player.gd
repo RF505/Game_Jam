@@ -30,11 +30,18 @@ var is_dashing : bool = false
 @export var should_camera_sync: bool = true
 @export_group("")
 
+@onready var audio_walk: AudioStreamPlayer = $walk
+@onready var audio_dash: AudioStreamPlayer = $dash
+
 
 func _process(delta: float) -> void:
 	# Directions
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	
+	#son de marche
+	if is_on_floor() and direction.x and not audio_walk.playing:
+		audio_walk.play()
 	
 	# Dash
 	if Input.is_action_just_pressed("dash") and can_dash and not is_dashing and not is_crouching and direction.x != 0:
@@ -93,6 +100,9 @@ func _physics_process(delta: float) -> void:
 
 
 func Dash() -> void:
+	audio_dash.play()
+	audio_dash.seek(0.19)
+	
 	is_dashing = true
 	can_dash = false
 	
@@ -110,6 +120,7 @@ func Dash() -> void:
 	
 	await get_tree().create_timer(dash_cooldown).timeout
 	can_dash = true
+	
 
 
 func _end_dash() -> void:

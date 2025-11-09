@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx5yg5t4g1uf1"]
+
+[ext_resource type="Script" uid="uid://qmyk67q66dvt" path="res://image_autre/zone_debut.gd" id="1_fx5vh"]
+[ext_resource type="PackedScene" uid="uid://enk4f68xxrcw" path="res://image_autre/sprite_2d.tscn" id="2_bbvae"]
+
+[node name="Zone_start" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_fx5vh")
+
+[node name="image_start" parent="." instance=ExtResource("2_bbvae")]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(2.3940148, 1.6167665)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://citk7aff8ys76"]
+
+[ext_resource type="Script" uid="uid://d0ep3a1756k4g" path="res://zone_jardin.gd" id="1_yi8i0"]
+
+[node name="Zone_Jardin" type="Area2D"]
+script = ExtResource("1_yi8i0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

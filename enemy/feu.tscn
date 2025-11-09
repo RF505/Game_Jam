@@ -33,7 +33,6 @@ collision_layer = 4
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_eu5kf")
-velocity = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12.25)

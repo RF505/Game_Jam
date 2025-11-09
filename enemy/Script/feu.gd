@@ -1,1 +1,1 @@
-extends Zone
+extends Zone_damage

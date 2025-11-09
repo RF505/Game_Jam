@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://d2yony5swilq5"]
+[gd_scene load_steps=17 format=4 uid="uid://d2yony5swilq5"]
 
 [ext_resource type="PackedScene" uid="uid://bxl53msj1oxp7" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cup6nouvjobe1" path="res://enemy/fourmi.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bpngrh12n1iim" path="res://image_autre/sky/4.png" id="2_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cphru5islbr13" path="res://enemy/feu.tscn" id="3_efxa6"]
-[ext_resource type="PackedScene" uid="uid://enk4f68xxrcw" path="res://image_autre/sprite_2d.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://jqp7nb0enkcy" path="res://enemy/bush.tscn" id="4_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bkplivs1hi23j" path="res://enemy/mouse.tscn" id="5_5vw27"]
 [ext_resource type="AudioStream" uid="uid://bl3ugqk5r8w8x" path="res://son/son_installation.mp3" id="5_lquwl"]
@@ -13,7 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://ccryvut6wm1v3" path="res://enemy/papion.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://cc2fjsvlvnugc" path="res://enemy/escargot.tscn" id="10_4c57u"]
 [ext_resource type="TileSet" uid="uid://cm0gio37s1hjv" path="res://Rescource/ground.tres" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://cx5yg5t4g1uf1" path="res://image_autre/zone.tscn" id="14_vivmo"]
 [ext_resource type="Texture2D" uid="uid://1fkbrnvme3m0" path="res://image_autre/tree_asset.png" id="14_w48qg"]
+[ext_resource type="Script" uid="uid://d0ep3a1756k4g" path="res://zone_jardin.gd" id="15_vivmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w48qg"]
+size = Vector2(61, 5148)
 
 [node name="Main" type="Node2D"]
 
@@ -42,7 +46,7 @@ position_smoothing_speed = 8.0
 position = Vector2(-669, 790)
 
 [node name="bush" parent="." instance=ExtResource("4_dg77c")]
-position = Vector2(2285, 1262)
+position = Vector2(2288, 1243)
 
 [node name="fourmi" parent="." instance=ExtResource("2_h2yge")]
 position = Vector2(1080, 1258)
@@ -56,9 +60,6 @@ position = Vector2(2744, 1229)
 [node name="papion" parent="." instance=ExtResource("9_kek77")]
 position = Vector2(2818, 1181)
 
-[node name="image_start" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(-900, 0)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_lquwl")
 volume_db = -14.983
@@ -70,3 +71,18 @@ script = ExtResource("7_5vw27")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAA=")
 tile_set = ExtResource("13_ycdy4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Zone_start" parent="CanvasLayer" instance=ExtResource("14_vivmo")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/Zone_start"]
+position = Vector2(1269, 1497)
+shape = SubResource("RectangleShape2D_w48qg")
+
+[node name="Zone_Jardin" type="Area2D" parent="CanvasLayer"]
+script = ExtResource("15_vivmo")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CanvasLayer/Zone_Jardin"]
+position = Vector2(1269, 1497)
+shape = SubResource("RectangleShape2D_w48qg")

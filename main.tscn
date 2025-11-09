@@ -22,17 +22,13 @@ size = Vector2(61, 5148)
 
 [node name="Main" type="Node2D"]
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1564.0001, 850.00006)
-scale = Vector2(1.4054785, 1.4054785)
-texture = ExtResource("2_w48qg")
-
 [node name="TreeAsset" type="Sprite2D" parent="."]
 position = Vector2(1248, 828)
 scale = Vector2(2.4814448, 2.609375)
 texture = ExtResource("14_w48qg")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+z_index = 110
 position = Vector2(219, 1210)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -92,3 +88,13 @@ shape = SubResource("RectangleShape2D_w48qg")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="CanvasLayer/Zone_maison"]
 position = Vector2(2786, 1285)
 shape = SubResource("RectangleShape2D_w48qg")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -319
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer2"]
+show_behind_parent = true
+z_index = -3735
+position = Vector2(1564.0001, 850.00006)
+scale = Vector2(1.4054785, 1.4054785)
+texture = ExtResource("2_w48qg")

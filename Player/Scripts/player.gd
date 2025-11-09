@@ -45,6 +45,13 @@ func _ready():
 	print("UI trouvé :", get_tree().get_first_node_in_group("ui_hearts"))
 
 func _process(delta: float) -> void:
+	if dead:
+		# Autoriser juste restart
+		if Input.is_action_just_pressed("restart"):
+			get_tree().reload_current_scene()
+		return
+
+	
 	# Directions
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = - Input.get_action_strength("up")
@@ -236,4 +243,17 @@ func take_damage(source: Node2D = null):
 		can_take_damage = true
 
 func die():
-	print("test")
+	if dead:
+		return
+		
+	dead = true
+	state = "dead"
+	velocity = Vector2.ZERO  # stop mouvement
+
+
+	# On bloque les actions
+	can_take_damage = false
+	can_dash = false
+	animation_player.play("dead")  # si l'anim n'utilise pas AnimDirection()
+
+	print("Player is dead. Press X to restart.")

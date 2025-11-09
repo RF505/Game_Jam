@@ -380,3 +380,13 @@ shape = SubResource("RectangleShape2D_w48qg")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="CanvasLayer/Zone_maison"]
 position = Vector2(5506, 1290)
 shape = SubResource("RectangleShape2D_w48qg")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -319
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer2"]
+show_behind_parent = true
+z_index = -3735
+position = Vector2(1564.0001, 850.00006)
+scale = Vector2(1.4054785, 1.4054785)
+texture = ExtResource("2_w48qg")

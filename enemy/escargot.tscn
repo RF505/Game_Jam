@@ -1,19 +1,26 @@
-[gd_scene load_steps=14 format=3 uid="uid://cc2fjsvlvnugc"]
+[gd_scene load_steps=15 format=3 uid="uid://cc2fjsvlvnugc"]
 
 [ext_resource type="Script" uid="uid://ca8qvh5bgi61u" path="res://enemy/Script/escargot.gd" id="1_8pak0"]
-[ext_resource type="Texture2D" uid="uid://bbsmdjfl2gs6b" path="res://enemy/Sprite/fourmisdeath.png" id="2_6iwmx"]
-[ext_resource type="Texture2D" uid="uid://d030seldo2kvp" path="res://enemy/Sprite/fourmis1.png" id="3_k26ht"]
-[ext_resource type="Texture2D" uid="uid://bhywdvay4ey5s" path="res://enemy/Sprite/fourmis2.png" id="4_6c7sr"]
+[ext_resource type="Texture2D" uid="uid://dwetyvvig0px7" path="res://enemy/Sprite/snail_frames.png" id="3_efwnm"]
 [ext_resource type="AudioStream" uid="uid://dtusl05khfnij" path="res://son/mort_enemy.wav" id="5_xpjtw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfwk3"]
-size = Vector2(40, 40)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n86sp"]
+atlas = ExtResource("3_efwnm")
+region = Rect2(379, 612, 177, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pak0"]
+atlas = ExtResource("3_efwnm")
+region = Rect2(275, 408, 177, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iwmx"]
+atlas = ExtResource("3_efwnm")
+region = Rect2(538, 408, 177, 204)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ipqfd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6iwmx")
+"texture": SubResource("AtlasTexture_n86sp")
 }],
 "loop": true,
 "name": &"dead",
@@ -21,15 +28,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_k26ht")
+"texture": SubResource("AtlasTexture_8pak0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_6c7sr")
+"texture": SubResource("AtlasTexture_6iwmx")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfwk3"]
+size = Vector2(43, 31)
 
 [sub_resource type="Animation" id="Animation_c7ip3"]
 length = 0.001
@@ -76,30 +86,30 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
-tracks/2/type = "method"
+tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D")
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 5, -0.11860966, 0, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
 }]
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 5, -0.11860966, 0, 0, 0),
-"times": PackedFloat32Array(0, 1)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c7ip3"]
@@ -136,14 +146,16 @@ lock_rotation = true
 script = ExtResource("1_8pak0")
 velocity = Vector2(-50, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 0)
-shape = SubResource("RectangleShape2D_gfwk3")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, 0)
+scale = Vector2(0.25, 0.252451)
 sprite_frames = SubResource("SpriteFrames_ipqfd")
 animation = &"walk"
 autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, -9.5)
+shape = SubResource("RectangleShape2D_gfwk3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

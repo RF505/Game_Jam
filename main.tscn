@@ -33,7 +33,7 @@ position = Vector2(1, 240)
 position = Vector2(532, 224)
 
 [node name="bush" parent="." instance=ExtResource("4_dg77c")]
-position = Vector2(752, 194)
+position = Vector2(729, 198)
 
 [node name="fourmi" parent="." instance=ExtResource("2_h2yge")]
 position = Vector2(715, 34)
@@ -42,7 +42,7 @@ position = Vector2(715, 34)
 position = Vector2(709, 140)
 
 [node name="escargot" parent="." instance=ExtResource("10_4c57u")]
-position = Vector2(854, 176)
+position = Vector2(807, 88)
 
 [node name="papion" parent="." instance=ExtResource("9_kek77")]
 position = Vector2(709, 94)

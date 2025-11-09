@@ -200,6 +200,8 @@ func SetState() -> bool:
 
 func UpdateAnimation() -> void:
 	animation_player.play(state + "_" + AnimDirection())
+	if dead: 
+			animation_player.play("dead")
 
 
 
@@ -254,6 +256,6 @@ func die():
 	# On bloque les actions
 	can_take_damage = false
 	can_dash = false
-	animation_player.play("dead")  # si l'anim n'utilise pas AnimDirection()
+	animation_player.play("dead")
 
 	print("Player is dead. Press X to restart.")

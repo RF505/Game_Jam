@@ -22,6 +22,23 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_vtle1"]
+resource_name = "dead"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
 [sub_resource type="Animation" id="Animation_00tjw"]
 resource_name = "falling_slide"
 length = 0.6
@@ -108,23 +125,6 @@ tracks/0/keys = {
 "values": [2, 3, 4, 5, 2]
 }
 
-[sub_resource type="Animation" id="Animation_vtle1"]
-resource_name = "dead"
-length = 0.1
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_btcbx"]
 _data = {
 &"RESET": SubResource("Animation_btcbx"),
@@ -151,7 +151,7 @@ texture_filter = 1
 position = Vector2(-5, 0)
 scale = Vector2(1.1702207, 1.5452207)
 texture = ExtResource("2_btcbx")
-hframes = 11
+hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

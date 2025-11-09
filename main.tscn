@@ -32,6 +32,8 @@ sources/0 = SubResource("TileSetAtlasSource_cegan")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_074og"]
 texture = ExtResource("14_074og")
 0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -315,8 +317,8 @@ position = Vector2(233, 944)
 position = Vector2(694, 387)
 limit_left = 0
 limit_top = 0
-limit_right = 3005
-limit_bottom = 1400
+limit_right = 5595
+limit_bottom = 1510
 position_smoothing_speed = 8.0
 
 [node name="feu" parent="." instance=ExtResource("3_efxa6")]

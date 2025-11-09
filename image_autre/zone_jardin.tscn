@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://citk7aff8ys76"]
+[gd_scene load_steps=3 format=3 uid="uid://citk7aff8ys76"]
 
 [ext_resource type="Script" uid="uid://d0ep3a1756k4g" path="res://zone_jardin.gd" id="1_yi8i0"]
+[ext_resource type="Texture2D" uid="uid://botk5twhgurww" path="res://image_autre/image2.png" id="2_r8ji3"]
 
 [node name="Zone_Jardin" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_yi8i0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="image_Jardin" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(960.0001, 540)
+scale = Vector2(2.4211853, 1.8181819)
+texture = ExtResource("2_r8ji3")

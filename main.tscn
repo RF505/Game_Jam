@@ -311,7 +311,7 @@ scale = Vector2(2.4814448, 2.609375)
 texture = ExtResource("14_w48qg")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(233, 944)
+position = Vector2(2581, 652)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(694, 387)
@@ -334,7 +334,7 @@ position = Vector2(3241, 1257)
 position = Vector2(2217, 1197)
 
 [node name="mouse" parent="." instance=ExtResource("5_5vw27")]
-position = Vector2(4168, 965)
+position = Vector2(3758, 1234)
 
 [node name="escargot" parent="." instance=ExtResource("10_4c57u")]
 position = Vector2(4604, 926)

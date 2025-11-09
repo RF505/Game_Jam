@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cup6nouvjobe1"]
+[gd_scene load_steps=14 format=3 uid="uid://cup6nouvjobe1"]
 
 [ext_resource type="Texture2D" uid="uid://bbsmdjfl2gs6b" path="res://enemy/Sprite/fourmisdeath.png" id="1_ipqfd"]
 [ext_resource type="Script" uid="uid://bw47mb7v3quth" path="res://enemy/Script/fourmi.gd" id="1_k0u6a"]
 [ext_resource type="Texture2D" uid="uid://d030seldo2kvp" path="res://enemy/Sprite/fourmis1.png" id="2_k0u6a"]
 [ext_resource type="Texture2D" uid="uid://bhywdvay4ey5s" path="res://enemy/Sprite/fourmis2.png" id="3_c7ip3"]
+[ext_resource type="AudioStream" uid="uid://dtusl05khfnij" path="res://son/mort_enemy.wav" id="5_c7ip3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfwk3"]
 size = Vector2(40, 40)
@@ -29,6 +30,20 @@ animations = [{
 "name": &"walk",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_c7ip3"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_k0u6a"]
 resource_name = "mort"
@@ -87,20 +102,6 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 1)
 }
 
-[sub_resource type="Animation" id="Animation_c7ip3"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c7ip3"]
 _data = {
 &"RESET": SubResource("Animation_c7ip3"),
@@ -156,3 +157,8 @@ lifetime = 0.16
 one_shot = true
 explosiveness = 0.05
 process_material = SubResource("ParticleProcessMaterial_k0u6a")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_c7ip3")
+volume_db = -14.983
+pitch_scale = 1.58

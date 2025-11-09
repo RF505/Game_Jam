@@ -2,6 +2,7 @@ extends RigidBody2D
 class_name Enemy
 
 var velocity : Vector2 = Vector2(-100,0)
+@onready var audio : AudioStreamPlayer = $AudioStreamPlayer
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var particules : GPUParticles2D = $GPUParticles2D
 
@@ -14,4 +15,6 @@ func die():
 	anim.play("mort")
 	particules.restart()
 	particules.emitting = true
+	audio.play()
+	
 	

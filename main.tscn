@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2yony5swilq5"]
+[gd_scene load_steps=6 format=3 uid="uid://d2yony5swilq5"]
 
 [ext_resource type="PackedScene" uid="uid://bxl53msj1oxp7" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://byl6uk7u6ulnt" path="res://platform.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cup6nouvjobe1" path="res://enemy/fourmi.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://enk4f68xxrcw" path="res://image_autre/sprite_2d.tscn" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://bl3ugqk5r8w8x" path="res://son/son_installation.mp3" id="5_lquwl"]
 
 [node name="Main" type="Node2D"]
 
@@ -26,3 +27,8 @@ position = Vector2(781, 88)
 
 [node name="image_start" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(-900, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lquwl")
+volume_db = -14.983
+autoplay = true

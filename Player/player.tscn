@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxl53msj1oxp7"]
+[gd_scene load_steps=14 format=3 uid="uid://bxl53msj1oxp7"]
 
 [ext_resource type="Script" uid="uid://bnp2ifwre8ej1" path="res://Player/Scripts/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://be4m4jdnm17qa" path="res://Player/Sprites/ExamplePlayerSprite.png" id="1_l8h54"]
+[ext_resource type="AudioStream" uid="uid://bvysoyvvagdjh" path="res://son/walk.wav" id="3_btcbx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(46, 114)
@@ -173,3 +174,13 @@ hframes = 21
 libraries = {
 &"": SubResource("AnimationLibrary_btcbx")
 }
+
+[node name="walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_btcbx")
+volume_db = -34.373
+pitch_scale = 3.22
+
+[node name="dash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_btcbx")
+volume_db = -17.628
+pitch_scale = 0.65

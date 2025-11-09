@@ -1,7 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://d2yony5swilq5"]
 
 [ext_resource type="PackedScene" uid="uid://bxl53msj1oxp7" path="res://Player/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://byl6uk7u6ulnt" path="res://platform.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cup6nouvjobe1" path="res://enemy/fourmi.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cphru5islbr13" path="res://enemy/feu.tscn" id="3_efxa6"]
 [ext_resource type="PackedScene" uid="uid://enk4f68xxrcw" path="res://image_autre/sprite_2d.tscn" id="4_1bvp3"]
@@ -12,11 +11,12 @@
 [ext_resource type="Script" uid="uid://bktfd6jcnv8g0" path="res://UI/Script/ui_hearts.gd" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ccryvut6wm1v3" path="res://enemy/papion.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://cc2fjsvlvnugc" path="res://enemy/escargot.tscn" id="10_4c57u"]
+[ext_resource type="TileSet" uid="uid://cm0gio37s1hjv" path="res://Rescource/ground.tres" id="11_efxa6"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(265, 154)
+position = Vector2(178, 716)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(694, 387)
@@ -39,7 +39,7 @@ position = Vector2(729, 198)
 position = Vector2(715, 34)
 
 [node name="mouse" parent="." instance=ExtResource("5_5vw27")]
-position = Vector2(709, 140)
+position = Vector2(1102, 716)
 
 [node name="escargot" parent="." instance=ExtResource("10_4c57u")]
 position = Vector2(807, 88)
@@ -57,3 +57,7 @@ autoplay = true
 
 [node name="UI_Hearts" parent="." groups=["ui_hearts"] instance=ExtResource("6_272bh")]
 script = ExtResource("7_5vw27")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("11_efxa6")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://d2yony5swilq5"]
+[gd_scene load_steps=19 format=4 uid="uid://d2yony5swilq5"]
 
 [ext_resource type="PackedScene" uid="uid://bxl53msj1oxp7" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cup6nouvjobe1" path="res://enemy/fourmi.tscn" id="2_h2yge"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bktfd6jcnv8g0" path="res://UI/Script/ui_hearts.gd" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ccryvut6wm1v3" path="res://enemy/papion.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://cc2fjsvlvnugc" path="res://enemy/escargot.tscn" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://bpi3v7tlndqfo" path="res://audio_stream_player.gd" id="11_yaehf"]
 [ext_resource type="TileSet" uid="uid://cm0gio37s1hjv" path="res://Rescource/ground.tres" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://cx5yg5t4g1uf1" path="res://image_autre/zone.tscn" id="14_vivmo"]
 [ext_resource type="Texture2D" uid="uid://1fkbrnvme3m0" path="res://image_autre/tree_asset.png" id="14_w48qg"]
@@ -61,10 +62,11 @@ position = Vector2(2744, 1229)
 [node name="papion" parent="." instance=ExtResource("9_kek77")]
 position = Vector2(2818, 1181)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_lquwl")
 volume_db = -14.983
 autoplay = true
+script = ExtResource("11_yaehf")
 
 [node name="UI_Hearts" parent="." groups=["ui_hearts"] instance=ExtResource("6_272bh")]
 script = ExtResource("7_5vw27")

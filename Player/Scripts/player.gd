@@ -10,7 +10,15 @@ var state : String = "idle"
 
 var is_jumping : bool = false
 var is_crouching : bool = false
+@export var knockback_force : float = 600.0
+
 var dead : bool = false
+
+@export var max_health := 3
+var current_health := 3
+var can_take_damage := true
+@export var invulnerability_time := 1.0  # sec
+@onready var ui_hearts := get_tree().get_first_node_in_group("ui_hearts")
 
 @export var max_jumps : int = 1
 var jump_count : int = 0
@@ -33,6 +41,8 @@ var is_dashing : bool = false
 @onready var audio_walk: AudioStreamPlayer = $walk
 @onready var audio_dash: AudioStreamPlayer = $dash
 
+func _ready():
+	print("UI trouvé :", get_tree().get_first_node_in_group("ui_hearts"))
 
 func _process(delta: float) -> void:
 	# Directions
@@ -89,14 +99,21 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	for i in get_slide_collision_count():
+	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var collider := col.get_collider()
-		var is_stomping := ( collider is Enemy and is_on_floor() and col.get_normal().is_equal_approx(Vector2.UP) )
-		
-		if is_stomping:
-			velocity.y = -bounce_height
-			(collider as Enemy).die()
+
+		if collider is Enemy:
+			var normal := col.get_normal()
+			
+			# Si on saute sur le dessus de l'ennemi
+			if normal.is_equal_approx(Vector2.UP):
+				velocity.y = -bounce_height
+				collider.die()
+			else:
+				# Sinon on prend des dégâts
+				take_damage(collider)
+
 
 
 func Dash() -> void:
@@ -177,3 +194,32 @@ func AnimDirection() -> String:
 		return "up"
 	else:
 		return "slide"
+
+
+func take_damage(source: Node2D = null):
+	if not can_take_damage or dead:
+		return
+
+	can_take_damage = false
+	current_health -= 1
+
+	# Knockback
+	if source != null:
+		var direction_knock = sign(global_position.x - source.global_position.x)
+		velocity.x = direction_knock * knockback_force
+		velocity.y = -200 # petit rebond
+	else:
+		# Si pas de source (ex: piège), on repousse selon la direction actuelle
+		velocity.x = -sign(direction.x) * knockback_force
+		velocity.y = -200
+
+	if ui_hearts:
+		ui_hearts.update_hearts(current_health)
+
+	if current_health <= 0:
+		print("Test")
+	else:
+		modulate = Color(1, 0.5, 0.5)
+		await get_tree().create_timer(invulnerability_time).timeout
+		modulate = Color(1, 1, 1)
+		can_take_damage = true

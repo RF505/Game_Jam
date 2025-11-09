@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dclspk2r3m51k"]
+
+[ext_resource type="Texture2D" uid="uid://dfcikc3hhbvgn" path="res://UI/hearts.png" id="1_xgast"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.08500019, 0.08500019)
+
+[node name="Heart1" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_xgast")
+
+[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_xgast")
+
+[node name="Heart3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_xgast")

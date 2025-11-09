@@ -356,6 +356,7 @@ tile_map_data = PackedByteArray("AAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAA
 tile_set = SubResource("TileSet_82xsv")
 
 [node name="litle_dirt" type="TileMapLayer" parent="."]
+visible = false
 tile_map_data = PackedByteArray("AADwAEAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_cegan")
 

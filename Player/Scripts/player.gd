@@ -224,9 +224,12 @@ func take_damage(source: Node2D = null):
 		ui_hearts.update_hearts(current_health)
 
 	if current_health <= 0:
-		print("Test")
+		die()
 	else:
 		modulate = Color(1, 0.5, 0.5)
 		await get_tree().create_timer(invulnerability_time).timeout
 		modulate = Color(1, 1, 1)
 		can_take_damage = true
+
+func die():
+	print("test")

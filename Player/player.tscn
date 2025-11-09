@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://bxl53msj1oxp7"]
 
 [ext_resource type="Script" uid="uid://bnp2ifwre8ej1" path="res://Player/Scripts/player.gd" id="1_4ntmi"]
-[ext_resource type="Texture2D" uid="uid://be4m4jdnm17qa" path="res://Player/Sprites/ExamplePlayerSprite.png" id="1_l8h54"]
+[ext_resource type="Texture2D" uid="uid://brvcged7geo1n" path="res://Player/Sprites/Sprite-0001.png" id="2_btcbx"]
 [ext_resource type="AudioStream" uid="uid://bvysoyvvagdjh" path="res://son/walk.wav" id="3_btcbx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(46, 114)
+size = Vector2(36, 108)
 
 [sub_resource type="Animation" id="Animation_od3ui"]
 resource_name = "N_attached_to_wall"
@@ -24,42 +24,8 @@ tracks/0/keys = {
 "values": [0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_00tjw"]
-resource_name = "N_crouch_down"
-length = 0.4
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
 [sub_resource type="Animation" id="Animation_vtle1"]
 resource_name = "N_dash"
-length = 0.4
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_fhl08"]
-resource_name = "N_jump"
 length = 0.4
 loop_mode = 2
 tracks/0/type = "value"
@@ -101,10 +67,28 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_gwnis"]
+resource_name = "walk_slide"
+length = 0.4
+loop_mode = 1
+step = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 6.062864, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5, 2]
 }
 
 [sub_resource type="Animation" id="Animation_k53q1"]
@@ -118,15 +102,32 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [14, 15, 16]
+"values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_gwnis"]
-resource_name = "walk_slide"
-length = 0.3
+[sub_resource type="Animation" id="Animation_00tjw"]
+resource_name = "falling_slide"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_fhl08"]
+resource_name = "jumping_slide"
+length = 0.1
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -135,21 +136,21 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [17, 18, 19, 20]
+"values": [6]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_btcbx"]
 _data = {
 &"N_attached_to_wall": SubResource("Animation_od3ui"),
-&"N_crouch_down": SubResource("Animation_00tjw"),
 &"N_dash": SubResource("Animation_vtle1"),
-&"N_jump": SubResource("Animation_fhl08"),
 &"RESET": SubResource("Animation_btcbx"),
+&"falling_slide": SubResource("Animation_00tjw"),
 &"idle_down": SubResource("Animation_4ntmi"),
 &"idle_slide": SubResource("Animation_k53q1"),
+&"jumping_slide": SubResource("Animation_fhl08"),
 &"walk_slide": SubResource("Animation_gwnis")
 }
 
@@ -160,15 +161,15 @@ collision_mask = 5
 script = ExtResource("1_4ntmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, -74)
+position = Vector2(-5, 6)
 shape = SubResource("RectangleShape2D_4ntmi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(7, -68)
-scale = Vector2(2.35, 2.3500001)
-texture = ExtResource("1_l8h54")
-hframes = 21
+position = Vector2(-5, 0)
+scale = Vector2(1.1702207, 1.5452207)
+texture = ExtResource("2_btcbx")
+hframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

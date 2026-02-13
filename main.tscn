@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://d2yony5swilq5"]
+[gd_scene format=4 uid="uid://d2yony5swilq5"]
 
 [ext_resource type="PackedScene" uid="uid://bxl53msj1oxp7" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cup6nouvjobe1" path="res://enemy/fourmi.tscn" id="2_h2yge"]
@@ -298,22 +298,22 @@ sources/0 = SubResource("TileSetAtlasSource_074og")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w48qg"]
 size = Vector2(61, 5148)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=778957103]
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1853221101]
 position = Vector2(2784.4446, 618.37506)
 scale = Vector2(2.4527392, 1.4511961)
 texture = ExtResource("2_w48qg")
 
-[node name="TreeAsset" type="Sprite2D" parent="."]
+[node name="TreeAsset" type="Sprite2D" parent="." unique_id=1250180062]
 position = Vector2(1248, 573)
 scale = Vector2(2.4814448, 2.609375)
 texture = ExtResource("14_w48qg")
 
-[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+[node name="Player" parent="." unique_id=2005938553 instance=ExtResource("1_ig7tw")]
 position = Vector2(159, 955)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=200790207]
 position = Vector2(694, 387)
 limit_left = 0
 limit_top = 0
@@ -321,73 +321,73 @@ limit_right = 5595
 limit_bottom = 1510
 position_smoothing_speed = 8.0
 
-[node name="feu" parent="." instance=ExtResource("3_efxa6")]
+[node name="feu" parent="." unique_id=80510399 instance=ExtResource("3_efxa6")]
 position = Vector2(-669, 790)
 
-[node name="bush" parent="." instance=ExtResource("4_dg77c")]
+[node name="bush" parent="." unique_id=1482085953 instance=ExtResource("4_dg77c")]
 position = Vector2(4360, 1005)
 
-[node name="bush2" parent="." instance=ExtResource("4_dg77c")]
+[node name="bush2" parent="." unique_id=421049478 instance=ExtResource("4_dg77c")]
 position = Vector2(3241, 1257)
 
-[node name="fourmi" parent="." instance=ExtResource("2_h2yge")]
+[node name="fourmi" parent="." unique_id=536982677 instance=ExtResource("2_h2yge")]
 position = Vector2(2217, 1197)
 
-[node name="mouse" parent="." instance=ExtResource("5_5vw27")]
+[node name="mouse" parent="." unique_id=1900771591 instance=ExtResource("5_5vw27")]
 position = Vector2(3758, 1234)
 
-[node name="escargot" parent="." instance=ExtResource("10_4c57u")]
+[node name="escargot" parent="." unique_id=428663881 instance=ExtResource("10_4c57u")]
 position = Vector2(4604, 926)
 
-[node name="papion" parent="." instance=ExtResource("9_kek77")]
+[node name="papion" parent="." unique_id=895669413 instance=ExtResource("9_kek77")]
 position = Vector2(2986, 1124)
 
-[node name="music" type="AudioStreamPlayer" parent="."]
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1262723840]
 stream = ExtResource("5_lquwl")
 volume_db = -14.983
 autoplay = true
 script = ExtResource("11_yaehf")
 
-[node name="UI_Hearts" parent="." groups=["ui_hearts"] instance=ExtResource("6_272bh")]
+[node name="UI_Hearts" parent="." unique_id=1956136438 groups=["ui_hearts"] instance=ExtResource("6_272bh")]
 script = ExtResource("7_5vw27")
 
-[node name="dirt" type="TileMapLayer" parent="."]
+[node name="dirt" type="TileMapLayer" parent="." unique_id=1131928739]
 tile_map_data = PackedByteArray("AAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAANAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAD//wUAAAAAAAAAAAD//wQAAAAAAAAAAAD//wMAAAAAAAAAAAD//wIAAAAAAAAAAAD//wEAAAAAAAAAAAD//wAAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAUAAAAAAAAAAAARAAUAAAAAAAAAAAASAAUAAAAAAAAAAAATAAUAAAAAAAAAAAAUAAUAAAAAAAAAAAAVAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_82xsv")
 
-[node name="litle_dirt" type="TileMapLayer" parent="."]
+[node name="litle_dirt" type="TileMapLayer" parent="." unique_id=940463098]
 visible = false
 tile_map_data = PackedByteArray("AADwAEAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_cegan")
 
-[node name="grass" type="TileMapLayer" parent="."]
+[node name="grass" type="TileMapLayer" parent="." unique_id=543702572]
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAATAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAVAAQAAAAAAAAAAAA=")
 tile_set = ExtResource("13_ycdy4")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1346832984]
 
-[node name="Zone_start" parent="CanvasLayer" instance=ExtResource("14_vivmo")]
+[node name="Zone_start" parent="CanvasLayer" unique_id=494097580 instance=ExtResource("14_vivmo")]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/Zone_start"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/Zone_start" unique_id=1096467966]
 position = Vector2(1269, 1497)
 shape = SubResource("RectangleShape2D_w48qg")
 
-[node name="Zone_Jardin" parent="CanvasLayer" instance=ExtResource("15_vivmo")]
+[node name="Zone_Jardin" parent="CanvasLayer" unique_id=775568186 instance=ExtResource("15_vivmo")]
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="CanvasLayer/Zone_Jardin"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CanvasLayer/Zone_Jardin" unique_id=1523828315]
 position = Vector2(1496, 1213)
 shape = SubResource("RectangleShape2D_w48qg")
 
-[node name="Zone_maison" parent="CanvasLayer" instance=ExtResource("16_2cqfq")]
+[node name="Zone_maison" parent="CanvasLayer" unique_id=275797489 instance=ExtResource("16_2cqfq")]
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="CanvasLayer/Zone_maison"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="CanvasLayer/Zone_maison" unique_id=938002297]
 position = Vector2(5506, 1290)
 shape = SubResource("RectangleShape2D_w48qg")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1534073135]
 layer = -319
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer2"]
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer2" unique_id=190403826]
 show_behind_parent = true
 z_index = -3735
 position = Vector2(1564.0001, 850.00006)
